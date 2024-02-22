@@ -24,16 +24,33 @@ public class TerrainFace
     {
         Vector3[] vertices = new Vector3[resolution * resolution];
         int[] triangles = new int[(resolution - 1) * (resolution - 1) * 6];
+        int triIndex = 0;
 
         for (int y = 0; y < resolution; y++)
         {
             for (int x = 0; x < resolution; x++)
             {
-                //int i = x + y * resolution;
+                int i = x + y * resolution; 
                 Vector2 percent = new Vector2(x, y) / (resolution - 1);
-                Vector3 pointOnUnitCube = localUp + (percent.x - .5f) * 2 * axisA + (percent.y - .5f) * 2 * axisB;
-                vertices[i] = pointOnUnitCube;
+                Vector3 pointOnUnitCube = localUp + (percent.x - .5f) * 2 * axisA + (percent.y - .5f) * 2 * axisB; 
+                vertices[i] = pointOnUnitCube; //정점 만들기 (번호 붙여가면서)
+
+                if(x != resolution - 1 && y != resolution - 1)
+                { 
+                    // 해상도 - 1에 해당하는 정점들의 바깥 쪽은 메쉬의 바깥 쪽이므로 삼각형 생성 X
+
+
+                    triangles[triIndex] = i;
+                    triangles[triIndex + 1] = i + resolution + 1;
+                    triangles[triIndex + 2] = i + resolution;
+
+                    triangles[triIndex + 3] = i;
+                    triangles[triIndex + 4] = i + 1;
+                    triangles[triIndex + 5] = i + resolution + 1;
+
+
+                }
             }
         }
-    }
+    } 
 }
