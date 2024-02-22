@@ -53,6 +53,7 @@ public class TerrainFace
                 }
             }
         }
+        mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.RecalculateBounds();
