@@ -49,9 +49,12 @@ public class TerrainFace
                     triangles[triIndex + 4] = i + 1;
                     triangles[triIndex + 5] = i + resolution + 1;
 
-
+                    triIndex += 6;
                 }
             }
         }
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateBounds();
     } 
 }
