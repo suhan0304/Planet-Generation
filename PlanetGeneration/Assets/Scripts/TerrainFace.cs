@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainFace : MonoBehaviour
+public class TerrainFace 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Mesh mesh;
+    int resolution;
+    Vector3 localUp;
+    Vector3 axisA;
+    Vector3 axisB;
 
-    // Update is called once per frame
-    void Update()
+    public TerrainFace(Mesh mesh, int resolution, Vector3 localUp)
     {
-        
+        this.mesh = mesh;
+        this.resolution = resolution;
+        this.localUp = localUp;
+
+        axisA = new Vector3(localUp.y, localUp.z, localUp.x);
+        axisB = Vector3.Cross(localUp, axisA);
     }
 }
