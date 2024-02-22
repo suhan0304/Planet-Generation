@@ -1,9 +1,9 @@
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainFace 
-{
+public class TerrainFace {
+
     Mesh mesh;
     int resolution;
     Vector3 localUp;
@@ -30,26 +30,21 @@ public class TerrainFace
         {
             for (int x = 0; x < resolution; x++)
             {
-                int i = x + y * resolution; 
+                int i = x + y * resolution;
                 Vector2 percent = new Vector2(x, y) / (resolution - 1);
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f) * 2 * axisA + (percent.y - .5f) * 2 * axisB;
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;
-                vertices[i] = pointOnUnitSphere; 
+                vertices[i] = pointOnUnitSphere;
 
-                if(x != resolution - 1 && y != resolution - 1)
+                if (x != resolution - 1 && y != resolution - 1)
                 {
-                    // 해상도 - 1에 해당하는 정점들의 바깥 쪽은 메쉬의 바깥 쪽이므로 삼각형 생성 X
-
-                    //(i, i+r+1, i+r)
                     triangles[triIndex] = i;
                     triangles[triIndex + 1] = i + resolution + 1;
                     triangles[triIndex + 2] = i + resolution;
 
-                    //(i, i+1, i+r+1)
                     triangles[triIndex + 3] = i;
                     triangles[triIndex + 4] = i + 1;
                     triangles[triIndex + 5] = i + resolution + 1;
-
                     triIndex += 6;
                 }
             }
@@ -57,6 +52,6 @@ public class TerrainFace
         mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
-        mesh.RecalculateBounds();
-    } 
+        mesh.RecalculateNormals();
+    }
 }

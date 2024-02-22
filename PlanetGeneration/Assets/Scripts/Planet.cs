@@ -1,31 +1,31 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Planet : MonoBehaviour
-{
-    [Range(2, 25)]
+public class Planet : MonoBehaviour {
+
+    [Range(2,256)]
     public int resolution = 10;
 
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
+     
+	private void OnValidate()
+	{
+        Initialize();
+        GenerateMesh();
+	}
 
-    private void OnValidate()
-    {
-        Initialized();
-        Generate();
-    }
-
-    void Initialized()
+	void Initialize()
     {
         if (meshFilters == null || meshFilters.Length == 0)
         {
-            meshFilters = new MeshFilter[6]; //¡§¿∞∏È√º¿Ãπ«∑Œ 6∞≥
+            meshFilters = new MeshFilter[6];
         }
         terrainFaces = new TerrainFace[6];
 
-        Vector3[] directions = {Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
+        Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
 
         for (int i = 0; i < 6; i++)
         {
@@ -43,9 +43,9 @@ public class Planet : MonoBehaviour
         }
     }
 
-    void Generate()
+    void GenerateMesh()
     {
-        foreach (TerrainFace face in terrainFaces) 
+        foreach (TerrainFace face in terrainFaces)
         {
             face.ConstructMesh();
         }
