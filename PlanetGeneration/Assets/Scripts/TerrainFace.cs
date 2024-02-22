@@ -36,14 +36,15 @@ public class TerrainFace
                 vertices[i] = pointOnUnitCube; //정점 만들기 (번호 붙여가면서)
 
                 if(x != resolution - 1 && y != resolution - 1)
-                { 
+                {
                     // 해상도 - 1에 해당하는 정점들의 바깥 쪽은 메쉬의 바깥 쪽이므로 삼각형 생성 X
 
-
+                    //(i, i+r+1, i+r)
                     triangles[triIndex] = i;
                     triangles[triIndex + 1] = i + resolution + 1;
                     triangles[triIndex + 2] = i + resolution;
 
+                    //(i, i+1, i+r+1)
                     triangles[triIndex + 3] = i;
                     triangles[triIndex + 4] = i + 1;
                     triangles[triIndex + 5] = i + resolution + 1;
