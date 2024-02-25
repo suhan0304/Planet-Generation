@@ -6,4 +6,9 @@ public class ShapeGenerator
 {
     ShapeSettings settings;
 
+    public ShapeGenerator(ShapeSettings settings)
+    {
+        this.settings = settings;
+    }
+
 }
