@@ -24,6 +24,8 @@ public class Planet : MonoBehaviour {
 
 	void Initialize()
     {
+        shapeGenerator = new ShapeGenerator(shapeSettings);
+
         if (meshFilters == null || meshFilters.Length == 0)
         {
             meshFilters = new MeshFilter[6];
