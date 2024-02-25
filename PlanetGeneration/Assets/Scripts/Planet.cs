@@ -7,6 +7,9 @@ public class Planet : MonoBehaviour {
     [Range(2,256)]
     public int resolution = 10;
 
+    public ShapeSettings shapeSettings;
+    public ColorSettings colorSettings;
+
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
@@ -50,4 +53,5 @@ public class Planet : MonoBehaviour {
             face.ConstructMesh();
         }
     }
+
 }
