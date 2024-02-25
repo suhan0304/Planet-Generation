@@ -46,6 +46,8 @@ public class Planet : MonoBehaviour {
         }
     }
 
+    
+
     void GenerateMesh()
     {
         foreach (TerrainFace face in terrainFaces)
@@ -54,4 +56,11 @@ public class Planet : MonoBehaviour {
         }
     }
 
+    void GenerateColos()
+    {
+        foreach (MeshFilter m in meshFilters)
+        {
+            m.GetComponent<MeshRenderer>().sharedMaterial.color = colorSettings.planetColor;
+        }
+    }
 }
