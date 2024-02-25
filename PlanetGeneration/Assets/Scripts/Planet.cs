@@ -46,6 +46,12 @@ public class Planet : MonoBehaviour {
         }
     }
 
+    public void OnShapeSettingsUpdated()
+    {
+        Initialize();
+        GenerateMesh();
+    }
+
     public void OnColorSettingsUpdated()
     {
         Initialize();
