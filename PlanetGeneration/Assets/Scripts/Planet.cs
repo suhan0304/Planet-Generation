@@ -46,7 +46,11 @@ public class Planet : MonoBehaviour {
         }
     }
 
-    
+    public void OnColorSettingsUpdated()
+    {
+        Initialize();
+        GenerateColors();
+    }
 
     void GenerateMesh()
     {
@@ -56,7 +60,7 @@ public class Planet : MonoBehaviour {
         }
     }
 
-    void GenerateColos()
+    void GenerateColors()
     {
         foreach (MeshFilter m in meshFilters)
         {
