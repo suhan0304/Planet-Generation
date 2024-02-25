@@ -11,4 +11,8 @@ public class ShapeGenerator
         this.settings = settings;
     }
 
+    public Vector3 CalculatePoinOnPlanet(Vector3 pointOnUnitSphere)
+    {
+        return pointOnUnitSphere * settings.planetRadius;
+    }
 }
