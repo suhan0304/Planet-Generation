@@ -10,6 +10,11 @@ public class Planet : MonoBehaviour {
     public ShapeSettings shapeSettings;
     public ColorSettings colorSettings;
 
+    [HideInInspector]
+    public bool shapeSettingFoldout;
+    [HideInInspector]
+    public bool colorSettingFoldout;
+
     ShapeGenerator shapeGenerator;
 
     [SerializeField, HideInInspector]
