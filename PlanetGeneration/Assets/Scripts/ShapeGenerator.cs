@@ -4,4 +4,6 @@ using UnityEngine;
 
 public class ShapeGenerator 
 {
+    ShapeSettings settings;
+
 }
