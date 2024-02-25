@@ -10,6 +10,8 @@ public class Planet : MonoBehaviour {
     public ShapeSettings shapeSettings;
     public ColorSettings colorSettings;
 
+    ShapeGenerator shapeGenerator;
+
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
