@@ -32,7 +32,7 @@ public class PlanetEditor : Editor
 
     void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
     {
-        if (settings == null)
+        if (settings != null)
         {
             foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
             using (var check = new EditorGUI.ChangeCheckScope())
