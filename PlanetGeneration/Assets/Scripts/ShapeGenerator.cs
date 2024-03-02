@@ -22,7 +22,7 @@ public class ShapeGenerator
         float elevation = 0;
         for (int i = 0; i < noiseFilters.Length; i++)
         {
-            if (settings.noiseLayers[i].enables)
+            if (settings.noiseLayers[i].enabled)
                 elevation += noiseFilters[i].Evalute(pointOnUnitSphere);
         }
         return pointOnUnitSphere * settings.planetRadius * (1 + elevation); ;
