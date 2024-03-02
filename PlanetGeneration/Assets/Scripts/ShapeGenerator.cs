@@ -15,6 +15,6 @@ public class ShapeGenerator
     public Vector3 CalculatePoinOnPlanet(Vector3 pointOnUnitSphere)
     {
         float elevation = noiseFilter.Evalute(pointOnUnitSphere);
-        return pointOnUnitSphere * settings.planetRadius;
+        return pointOnUnitSphere * settings.planetRadius * (1 + elevation); ;
     }
 }
