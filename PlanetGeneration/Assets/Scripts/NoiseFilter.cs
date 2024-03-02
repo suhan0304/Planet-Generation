@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoiseFilter : MonoBehaviour
+public class NoiseFilter
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Noise noise = new Noise();
 
-    // Update is called once per frame
-    void Update()
+    public float Evalute(Vector3 point)
     {
-        
+
     }
 }
