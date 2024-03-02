@@ -9,5 +9,6 @@ public class NoiseFilter
     public float Evalute(Vector3 point)
     {
         float noiseValue = noise.Evaluate(point);
+        return noiseValue;
     }
 }
