@@ -15,7 +15,15 @@ public class NoiseFilter
 
     public float Evalute(Vector3 point)
     {
-        float noiseValue = (noise.Evaluate(point * settings.roughness + settings.centre) + 1) * .5f;
+        float noiseValue = 0;
+        float frequency = settings.baseRoughness;
+        float amplitude = 1;
+
+        for (int i = 0; i < settings.numLayers; i++)
+        {
+
+        }
+
         return noiseValue * settings.strength;
     }
 }
