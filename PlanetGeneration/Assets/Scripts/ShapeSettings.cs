@@ -11,7 +11,7 @@ public class ShapeSettings : ScriptableObject
     [System.Serializable]
     public class NoiseLayer
     {
-        public bool enables = true;
+        public bool enabled = true;
         public NoiseSettings noiseSettings;
     }
 }
