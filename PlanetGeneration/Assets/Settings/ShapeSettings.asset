@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetRadius: 5.17
   noiseLayers:
-  - enabled: 0
+  - enabled: 1
     useFirstLayerAsMask: 0
     noiseSettings:
-      strength: 0.12
+      strength: 0.07
       numLayers: 7
       baseRoughness: 0.55
       roughness: 2.34
