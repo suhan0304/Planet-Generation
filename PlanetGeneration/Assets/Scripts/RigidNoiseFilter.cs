@@ -20,8 +20,9 @@ public class RigidNoiseFilter
 
         for (int i = 0; i < settings.numLayers; i++)
         {
-            float v = noise.Evaluate(point * frequency + settings.centre);
-            noiseValue += (v + 1) * .5f * amplitude;
+            float v = 1 - Mathf.Abs(noise.Evaluate(point * frequency + settings.centre));
+            v *= v;
+            noiseValue += v * amplitude;
             frequency *= settings.roughness;
             amplitude *= settings.persistence;
         }
