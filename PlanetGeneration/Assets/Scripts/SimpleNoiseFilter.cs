@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleNoiseFilter
+public class SimpleNoiseFilter : INoiseFilter
 {
     NoiseSettings settings;
     Noise noise = new Noise();
@@ -13,7 +13,7 @@ public class SimpleNoiseFilter
         this.settings = settings; 
     }
 
-    public float Evalute(Vector3 point)
+    public float Evaluate(Vector3 point)
     {
         float noiseValue = 0;
         float frequency = settings.baseRoughness;
