@@ -6,9 +6,10 @@ using UnityEditor;
 [CustomEditor(typeof(Planet))]
 public class PlanetEditor : Editor
 {
+
     Planet planet;
     Editor shapeEditor;
-    Editor colorEditor;
+    Editor ColorEditor;
 
     public override void OnInspectorGUI()
     {
@@ -26,8 +27,8 @@ public class PlanetEditor : Editor
             planet.GeneratePlanet();
         }
 
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingFoldout, ref shapeEditor);
-        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated, ref planet.colorSettingFoldout, ref colorEditor);
+        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
+        DrawSettingsEditor(planet.ColorSettings, planet.OnColorSettingsUpdated, ref planet.ColorSettingsFoldout, ref ColorEditor);
     }
 
     void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
@@ -41,13 +42,13 @@ public class PlanetEditor : Editor
                 {
                     CreateCachedEditor(settings, null, ref editor);
                     editor.OnInspectorGUI();
-                }
 
-                if (check.changed)
-                {
-                    if (onSettingsUpdated != null)
+                    if (check.changed)
                     {
-                        onSettingsUpdated();
+                        if (onSettingsUpdated != null)
+                        {
+                            onSettingsUpdated();
+                        }
                     }
                 }
             }
