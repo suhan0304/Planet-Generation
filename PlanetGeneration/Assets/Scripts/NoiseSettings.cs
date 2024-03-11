@@ -1,11 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 [System.Serializable]
-public class NoiseSettings {
-
-    public enum FilterType { Simple, Ridgid };
+public class NoiseSettings 
+{
+    public enum FilterType
+    {
+        Simple,
+        Ridgid
+    }
     public FilterType filterType;
 
     [ConditionalHide("filterType", 0)]
@@ -31,7 +36,4 @@ public class NoiseSettings {
     {
         public float weightMultiplier = .8f;
     }
-
-
-
 }

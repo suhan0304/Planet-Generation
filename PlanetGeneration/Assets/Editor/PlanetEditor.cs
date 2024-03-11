@@ -1,17 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Planet))]
-public class PlanetEditor : Editor {
-
+public class PlanetEditor : Editor
+{
     Planet planet;
     Editor shapeEditor;
-    Editor colourEditor;
+    Editor colorEditor;
 
-	public override void OnInspectorGUI()
-	{
+    public override void OnInspectorGUI()
+    {
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             base.OnInspectorGUI();
@@ -26,9 +26,9 @@ public class PlanetEditor : Editor {
             planet.GeneratePlanet();
         }
 
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
-        DrawSettingsEditor(planet.colourSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
-	}
+        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingFoldout, ref shapeEditor);
+        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated, ref planet.colorSettingFoldout, ref colorEditor);
+    }
 
     void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
     {
@@ -41,21 +41,21 @@ public class PlanetEditor : Editor {
                 {
                     CreateCachedEditor(settings, null, ref editor);
                     editor.OnInspectorGUI();
+                }
 
-                    if (check.changed)
+                if (check.changed)
+                {
+                    if (onSettingsUpdated != null)
                     {
-                        if (onSettingsUpdated != null)
-                        {
-                            onSettingsUpdated();
-                        }
+                        onSettingsUpdated();
                     }
                 }
             }
         }
     }
 
-	private void OnEnable()
-	{
+    private void OnEnable()
+    {
         planet = (Planet)target;
-	}
+    }
 }
