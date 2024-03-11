@@ -2,35 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Planet : MonoBehaviour
-{
+public class Planet : MonoBehaviour {
 
-    [Range(2, 256)]
+    [Range(2,256)]
     public int resolution = 10;
     public bool autoUpdate = true;
     public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
     public FaceRenderMask faceRenderMask;
 
     public ShapeSettings shapeSettings;
-    public ColorSettings ColorSettings;
+    public ColourSettings colourSettings;
 
     [HideInInspector]
     public bool shapeSettingsFoldout;
     [HideInInspector]
-    public bool ColorSettingsFoldout;
+    public bool colourSettingsFoldout;
 
     ShapeGenerator shapeGenerator = new ShapeGenerator();
-    ColorGenerator ColorGenerator = new ColorGenerator();
+    ColourGenerator colourGenerator = new ColourGenerator();
 
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
+     
 
-
-    void Initialize()
+	void Initialize()
     {
         shapeGenerator.UpdateSettings(shapeSettings);
-        ColorGenerator.UpdateSettings(ColorSettings);
+        colourGenerator.UpdateSettings(colourSettings);
 
         if (meshFilters == null || meshFilters.Length == 0)
         {
@@ -51,7 +50,7 @@ public class Planet : MonoBehaviour
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
             }
-            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = ColorSettings.planetMaterial;
+            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
 
             terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
             bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
@@ -63,7 +62,7 @@ public class Planet : MonoBehaviour
     {
         Initialize();
         GenerateMesh();
-        GenerateColors();
+        GenerateColours();
     }
 
     public void OnShapeSettingsUpdated()
@@ -75,12 +74,12 @@ public class Planet : MonoBehaviour
         }
     }
 
-    public void OnColorSettingsUpdated()
+    public void OnColourSettingsUpdated()
     {
         if (autoUpdate)
         {
             Initialize();
-            GenerateColors();
+            GenerateColours();
         }
     }
 
@@ -94,11 +93,11 @@ public class Planet : MonoBehaviour
             }
         }
 
-        ColorGenerator.UpdateElevation(shapeGenerator.elevationMinMax);
+        colourGenerator.UpdateElevation(shapeGenerator.elevationMinMax);
     }
 
-    void GenerateColors()
+    void GenerateColours()
     {
-        ColorGenerator.UpdateColors();
+        colourGenerator.UpdateColours();
     }
 }

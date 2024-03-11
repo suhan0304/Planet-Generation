@@ -1,15 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorGenerator
-{
+public class ColourGenerator {
 
-    ColorSettings settings;
+    ColourSettings settings;
     Texture2D texture;
     const int textureResolution = 50;
 
-    public void UpdateSettings(ColorSettings settings)
+    public void UpdateSettings(ColourSettings settings)
     {
         this.settings = settings;
         if (texture == null)
@@ -23,14 +22,14 @@ public class ColorGenerator
         settings.planetMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
     }
 
-    public void UpdateColors()
+    public void UpdateColours()
     {
-        Color[] Colors = new Color[textureResolution];
+        Color[] colours = new Color[textureResolution];
         for (int i = 0; i < textureResolution; i++)
         {
-            Colors[i] = settings.gradient.Evaluate(i / (textureResolution - 1f));
+            colours[i] = settings.gradient.Evaluate(i / (textureResolution - 1f));
         }
-        texture.SetPixels(Colors);
+        texture.SetPixels(colours);
         texture.Apply();
         settings.planetMaterial.SetTexture("_texture", texture);
     }
