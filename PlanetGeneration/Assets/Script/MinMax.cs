@@ -12,16 +12,4 @@ public class MinMax {
         Min = float.MaxValue;
         Max = float.MinValue;
     }
-
-    public void AddValue(float v)
-    {
-        if (v > Max)
-        {
-            Max = v;
-        }
-        if (v < Min)
-        {
-            Min = v;
-        }
-    }
 }
