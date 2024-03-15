@@ -27,6 +27,14 @@ public class ColorGenerator
         float heightPercent = (pointOnUnitSphere.y + 1) / 2f;
         float biomeIndex = 0;
         int numBiomes = settings.biomeColorSettings.biomes.Length;
+
+        for (int i = 0; i < numBiomes; i++)
+        {
+            if (settings.biomeColorSettings.biomes[i].startHeight < heightPercent)
+            {
+                biomeIndex = i;
+            }
+        }
     }
 
     public void UpdateColors()
