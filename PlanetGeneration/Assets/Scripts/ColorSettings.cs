@@ -10,6 +10,9 @@ public class ColorSettings : ScriptableObject
 
     public class BiomeColorSettings
     {
-
+        public class Biome
+        {
+            public Gradient gradient;
+        }
     }
 }
