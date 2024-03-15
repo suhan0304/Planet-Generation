@@ -34,6 +34,10 @@ public class ColorGenerator
             {
                 biomeIndex = i;
             }
+            else
+            {
+                break;
+            }
         }
     }
 
