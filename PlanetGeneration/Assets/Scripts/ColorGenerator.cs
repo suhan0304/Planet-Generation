@@ -22,6 +22,11 @@ public class ColorGenerator
         settings.planetMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
     }
 
+    public float BiomePercentFromPoint (Vector3 pointOnUnitSphere)
+    {
+
+    }
+
     public void UpdateColors()
     {
         Color[] colors = new Color[textureResolution];
