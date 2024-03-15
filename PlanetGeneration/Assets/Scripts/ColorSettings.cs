@@ -12,7 +12,7 @@ public class ColorSettings : ScriptableObject
         public class Biome
         {
             public Gradient gradient;
-
+            [Range(0, 1)]
             public float startHeight;
         }
     }
