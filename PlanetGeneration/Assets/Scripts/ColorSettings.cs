@@ -7,10 +7,12 @@ public class ColorSettings : ScriptableObject
 {
     public Material planetMaterial;
 
+    [System.Serializable]
     public class BiomeColorSettings
     {
         public Biome[] biomes;
 
+        [System.Serializable]
         public class Biome
         {
             public Gradient gradient;
