@@ -11,9 +11,9 @@ public class ColorGenerator
     public void UpdateSettings(ColorSettings settings)
     {
         this.settings = settings;
-        if (texture == null)
+        if (texture == null || texture.height != settings.biomeColorSettings.biomes.Length)
         {
-            texture = new Texture2D(textureResolution, 1);
+            texture = new Texture2D(textureResolution, settings.biomeColorSettings.biomes.Length);
         }
     }
 
@@ -25,9 +25,13 @@ public class ColorGenerator
     public void UpdateColors()
     {
         Color[] colors = new Color[textureResolution];
-        for (int i = 0; i < textureResolution; i++)
+        foreach(var biome in  settings.biomeColorSettings.biomes)
         {
-            colors[i] = settings.gradient.Evaluate(i / (textureResolution - 1f));
+            for (int i = 0; i < textureResolution; i++)
+            {
+                Color gradientCol = biome.gradient.Evaluate(i / (textureResolution - 1f)); ;
+                Color tintCol = biome.tint;
+            }
         }
         texture.SetPixels(colors);
         texture.Apply();
