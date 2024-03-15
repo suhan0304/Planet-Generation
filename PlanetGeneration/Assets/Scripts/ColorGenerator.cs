@@ -39,6 +39,8 @@ public class ColorGenerator
                 break;
             }
         }
+
+        return biomeIndex / Mathf.Max(1,numBiomes - 1);
     }
 
     public void UpdateColors()
