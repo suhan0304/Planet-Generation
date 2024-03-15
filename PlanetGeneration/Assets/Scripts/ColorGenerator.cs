@@ -25,12 +25,14 @@ public class ColorGenerator
     public void UpdateColors()
     {
         Color[] colors = new Color[textureResolution];
+        int colorIndex = 0;
         foreach(var biome in  settings.biomeColorSettings.biomes)
         {
             for (int i = 0; i < textureResolution; i++)
             {
                 Color gradientCol = biome.gradient.Evaluate(i / (textureResolution - 1f)); ;
                 Color tintCol = biome.tint;
+                colors[colorIndex] = gradientCol * (1 - biome.tintPercent) + tintCol * biome.tintPercent;
             }
         }
         texture.SetPixels(colors);
