@@ -24,7 +24,9 @@ public class ColorGenerator
 
     public float BiomePercentFromPoint (Vector3 pointOnUnitSphere)
     {
-
+        float heightPercent = (pointOnUnitSphere.y + 1) / 2f;
+        float biomeIndex = 0;
+        int numBiomes = settings.biomeColorSettings.biomes.Length;
     }
 
     public void UpdateColors()
