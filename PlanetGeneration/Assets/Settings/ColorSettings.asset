@@ -29,7 +29,7 @@ MonoBehaviour:
         ctime1: 2313
         ctime2: 6168
         ctime3: 12914
-        ctime4: 36044
+        ctime4: 38165
         ctime5: 65535
         ctime6: 0
         ctime7: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
     noise:
       filterType: 0
       simpleNoiseSettings:
-        strength: 1
+        strength: 0.94
         numLayers: 2
         baseRoughness: 1
         roughness: 2
