@@ -50,7 +50,7 @@ MonoBehaviour:
       tintPercent: 0.135
     - gradient:
         serializedVersion: 2
-        key0: {r: 0.16237983, g: 0.48724842, b: 0.8396226, a: 1}
+        key0: {r: 0.4185208, g: 0.5955028, b: 0.8962264, a: 1}
         key1: {r: 0.13333334, g: 0.909804, b: 1, a: 1}
         key2: {r: 0.45600095, g: 0.6037736, b: 0.36169454, a: 0}
         key3: {r: 0.08752381, g: 0.3207547, b: 0.04690281, a: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
         key6: {r: 1, g: 1, b: 1, a: 0}
         key7: {r: 1, g: 1, b: 1, a: 0}
         ctime0: 0
-        ctime1: 2120
+        ctime1: 1157
         ctime2: 5783
         ctime3: 17926
         ctime4: 27178
