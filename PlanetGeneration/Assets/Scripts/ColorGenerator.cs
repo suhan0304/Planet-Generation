@@ -54,7 +54,7 @@ public class ColorGenerator
                 Color gradientCol;
                 if (i < textureResolution)
                 {
-
+                    Color gradientCol = biome.gradient.Evaluate(i / (textureResolution - 1f)); ;
                 }
                 Color gradientCol = biome.gradient.Evaluate(i / (textureResolution - 1f)); ;
                 Color tintCol = biome.tint;
