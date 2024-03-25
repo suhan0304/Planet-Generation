@@ -45,27 +45,27 @@ public class ColorGenerator
 
     public void UpdateColors()
     {
-        Color[] colors = new Color[textureResolution * texture.height];
-        int colorIndex = 0;
-        foreach(var biome in  settings.biomeColorSettings.biomes)
+        Color[] colours = new Color[texture.width * texture.height];
+        int colourIndex = 0;
+        foreach (var biome in settings.biomeColorSettings.biomes)
         {
             for (int i = 0; i < textureResolution * 2; i++)
             {
                 Color gradientCol;
                 if (i < textureResolution)
                 {
-                    gradientCol = settings.oceanColor.Evaluate(i / (textureResolution - 1f)); ;
+                    gradientCol = settings.oceanColor.Evaluate(i / (textureResolution - 1f));
                 }
                 else
                 {
-                    gradientCol = biome.gradient.Evaluate((i-textureResolution) / (textureResolution - 1f)); ;
+                    gradientCol = biome.gradient.Evaluate((i - textureResolution) / (textureResolution - 1f));
                 }
                 Color tintCol = biome.tint;
-                colors[colorIndex] = gradientCol * (1 - biome.tintPercent) + tintCol * biome.tintPercent;
-                colorIndex++;
+                colours[colourIndex] = gradientCol * (1 - biome.tintPercent) + tintCol * biome.tintPercent;
+                colourIndex++;
             }
         }
-        texture.SetPixels(colors);
+        texture.SetPixels(colours);
         texture.Apply();
         settings.planetMaterial.SetTexture("_texture", texture);
     }
