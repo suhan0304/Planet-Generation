@@ -51,6 +51,11 @@ public class ColorGenerator
         {
             for (int i = 0; i < textureResolution * 2; i++)
             {
+                Color gradientCol;
+                if (i < textureResolution)
+                {
+
+                }
                 Color gradientCol = biome.gradient.Evaluate(i / (textureResolution - 1f)); ;
                 Color tintCol = biome.tint;
                 colors[colorIndex] = gradientCol * (1 - biome.tintPercent) + tintCol * biome.tintPercent;
