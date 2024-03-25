@@ -58,7 +58,7 @@ public class ColorGenerator
                 }
                 else
                 {
-                    gradientCol = biome.gradient.Evaluate(i-textureResolution / (textureResolution - 1f)); ;
+                    gradientCol = biome.gradient.Evaluate((i-textureResolution) / (textureResolution - 1f)); ;
                 }
                 Color tintCol = biome.tint;
                 colors[colorIndex] = gradientCol * (1 - biome.tintPercent) + tintCol * biome.tintPercent;
